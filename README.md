@@ -1,1 +1,1 @@
-# golang
+Zadania z programowania w języku Go
