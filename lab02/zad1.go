@@ -64,6 +64,12 @@ func main() {
 	for _, p := range participants {
 		fmt.Println(p.Name, total(p, strategy))
 	}
+	fmt.Println("\nNajlepsi wykonawcy poszczególnych utworów:")
+	for _, piece := range pieces {
+		best := bestForPiece(participants, piece.Name, strategy)
+		fmt.Println(piece.Name, "-", best.Name)
+	}
+
 }
 
 func total(p Participant, s ScoreStrategy) float64 {
@@ -74,7 +80,30 @@ func total(p Participant, s ScoreStrategy) float64 {
 	return sum
 }
 
+func bestForPiece(participants []Participant, piece string, s ScoreStrategy) Participant {
+	var best Participant
+	bestScore := -1.0
+
+	for _, p := range participants {
+		scores, ok := p.Scores[piece]
+		if !ok {
+			continue
+		}
+		avg := s.Average(scores)
+		if avg > bestScore {
+			bestScore = avg
+			best = p
+		}
+	}
+	return best
+}
+
 // Ranking:
 // Maria 67
 // Anna 65
 // Jan 63.66666666666667
+
+// Najlepsi wykonawcy poszczególnych utworów:
+// Polonez - Maria
+// Etiuda - Maria
+// Mazurki - Jan
