@@ -1,0 +1,133 @@
+timestep,message
+1,OZE 11.9 MW | Popyt 61.9 MW | Bilans 0.0 MW | Bateria 12% | STABLE
+1779740639,Prognoza: zmiana mocy OZE o 0.4 MW
+1779740639,residential chce 3.0 MW (priorytet 3)
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,industrial chce 5.0 MW (priorytet 2)
+1779740639,Prognoza: zmiana mocy OZE o 4.1 MW
+2,OZE 14.8 MW | Popyt 60.7 MW | Bilans 16.0 MW | Bateria 0% | STABLE
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,residential chce 3.0 MW (priorytet 3)
+1779740639,industrial chce 5.0 MW (priorytet 2)
+3,OZE 14.4 MW | Popyt 59.1 MW | Bilans 16.0 MW | Bateria 0% | STABLE
+1779740639,residential chce 3.0 MW (priorytet 3)
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,Prognoza: zmiana mocy OZE o -0.0 MW
+1779740639,industrial chce 5.0 MW (priorytet 2)
+4,OZE 22.0 MW | Popyt 65.1 MW | Bilans 16.0 MW | Bateria 6% | STABLE
+1779740639,residential chce 3.0 MW (priorytet 3)
+1779740639,industrial chce 5.0 MW (priorytet 2)
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,Prognoza: zmiana mocy OZE o 0.7 MW
+5,OZE 10.5 MW | Popyt 59.6 MW | Bilans 16.0 MW | Bateria 0% | STABLE
+1779740639,residential chce 3.0 MW (priorytet 3)
+1779740639,industrial chce 5.0 MW (priorytet 2)
+1779740639,Prognoza: zmiana mocy OZE o -5.9 MW
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,Prognoza: zmiana mocy OZE o 5.6 MW
+6,OZE 21.9 MW | Popyt 65.5 MW | Bilans 16.0 MW | Bateria 6% | STABLE
+1779740639,residential chce 3.0 MW (priorytet 3)
+1779740639,industrial chce 30.0 MW (priorytet 2)
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,Prognoza: zmiana mocy OZE o -1.3 MW
+7,OZE 22.1 MW | Popyt 46.6 MW | Bilans 41.0 MW | Bateria 0% | STABLE
+1779740639,residential chce 10.0 MW (priorytet 3)
+1779740639,industrial chce 30.0 MW (priorytet 2)
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,Prognoza: zmiana mocy OZE o -0.3 MW
+8,OZE 23.1 MW | Popyt 21.7 MW | Bilans 48.0 MW | Bateria 0% | STABLE
+1779740639,residential chce 10.0 MW (priorytet 3)
+1779740639,industrial chce 30.0 MW (priorytet 2)
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,Prognoza: zmiana mocy OZE o 6.8 MW
+9,OZE 35.7 MW | Popyt 9.4 MW | Bilans 48.0 MW | Bateria 0% | STABLE
+1779740639,critical chce 8.0 MW (priorytet 1)
+1779740639,residential chce 10.0 MW (priorytet 3)
+1779740639,industrial chce 30.0 MW (priorytet 2)
+10,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
+10,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
+10,OZE 28.1 MW | Popyt 0.0 MW | Bilans 48.0 MW | Bateria 29% | CRITICAL
+1779740640,Prognoza: zmiana mocy OZE o 1.9 MW
+9,residential: dostał 0.00 / 10.00 (LoadShed)
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,residential chce 3.0 MW (priorytet 3)
+9,industrial: dostał 0.00 / 30.00 (LoadShed)
+10,industrial: dostał 30.00 / 40.00 (CRITICAL)
+1779740640,industrial chce 40.0 MW (priorytet 2)
+1779740640,industrial chce 30.0 MW (priorytet 2)
+1779740640,Prognoza: zmiana mocy OZE o 1.4 MW
+1779740640,residential chce 3.0 MW (priorytet 3)
+11,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
+11,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
+11,residential: dostał 0.00 / 3.00 (LoadShed)
+11,OZE 29.7 MW | Popyt 0.0 MW | Bilans 41.0 MW | Bateria 22% | CRITICAL
+1779740640,critical chce 8.0 MW (priorytet 1)
+11,industrial: dostał 0.00 / 30.00 (LoadShed)
+12,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
+12,OZE 38.7 MW | Popyt 0.0 MW | Bilans 41.0 MW | Bateria 1% | CRITICAL
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,residential chce 3.0 MW (priorytet 3)
+1779740640,Prognoza: zmiana mocy OZE o 0.8 MW
+1779740640,industrial chce 30.0 MW (priorytet 2)
+1779740640,residential chce 3.0 MW (priorytet 3)
+1779740640,Prognoza: zmiana mocy OZE o 6.3 MW
+13,OZE 55.8 MW | Popyt 14.8 MW | Bilans 41.0 MW | Bateria 15% | STABLE
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,industrial chce 30.0 MW (priorytet 2)
+14,OZE 66.7 MW | Popyt 40.5 MW | Bilans 41.0 MW | Bateria 26% | STABLE
+1779740640,Prognoza: zmiana mocy OZE o 1.8 MW
+1779740640,residential chce 3.0 MW (priorytet 3)
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,industrial chce 30.0 MW (priorytet 2)
+1779740640,Prognoza: zmiana mocy OZE o 3.0 MW
+15,OZE 80.8 MW | Popyt 80.4 MW | Bilans 41.0 MW | Bateria 40% | STABLE
+1779740640,residential chce 3.0 MW (priorytet 3)
+1779740640,critical chce 8.0 MW (priorytet 1)
+15,industrial: dostał 30.00 / 40.00 (STABLE)
+1779740640,industrial chce 40.0 MW (priorytet 2)
+1779740640,Prognoza: zmiana mocy OZE o 3.0 MW
+16,OZE 90.0 MW | Popyt 100.0 MW | Bilans 51.0 MW | Bateria 39% | STABLE
+1779740640,residential chce 3.0 MW (priorytet 3)
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,industrial chce 30.0 MW (priorytet 2)
+1779740640,Prognoza: zmiana mocy OZE o -0.6 MW
+17,OZE 78.6 MW | Popyt 100.0 MW | Bilans 41.0 MW | Bateria 38% | STABLE
+1779740640,industrial chce 30.0 MW (priorytet 2)
+1779740640,residential chce 3.0 MW (priorytet 3)
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,Prognoza: zmiana mocy OZE o -2.5 MW
+18,OZE 67.5 MW | Popyt 100.0 MW | Bilans 41.0 MW | Bateria 26% | STABLE
+1779740640,industrial chce 30.0 MW (priorytet 2)
+18,residential: dostał 3.00 / 10.00 (STABLE)
+1779740640,residential chce 10.0 MW (priorytet 3)
+1779740640,critical chce 8.0 MW (priorytet 1)
+19,OZE 64.0 MW | Popyt 100.0 MW | Bilans 48.0 MW | Bateria 16% | STABLE
+1779740640,industrial chce 5.0 MW (priorytet 2)
+1779740640,critical chce 8.0 MW (priorytet 1)
+1779740640,residential chce 10.0 MW (priorytet 3)
+1779740640,Prognoza: zmiana mocy OZE o 1.2 MW
+20,OZE 67.3 MW | Popyt 100.0 MW | Bilans 23.0 MW | Bateria 44% | STABLE
+1779740641,critical chce 8.0 MW (priorytet 1)
+1779740641,residential chce 10.0 MW (priorytet 3)
+1779740641,Prognoza: zmiana mocy OZE o 3.3 MW
+1779740641,industrial chce 5.0 MW (priorytet 2)
+21,OZE 72.9 MW | Popyt 100.0 MW | Bilans 23.0 MW | Bateria 50% | STABLE
+1779740641,industrial chce 5.0 MW (priorytet 2)
+1779740641,critical chce 8.0 MW (priorytet 1)
+1779740641,residential chce 10.0 MW (priorytet 3)
+1779740641,Prognoza: zmiana mocy OZE o 1.3 MW
+22,OZE 90.0 MW | Popyt 100.0 MW | Bilans 23.0 MW | Bateria 67% | STABLE
+1779740641,industrial chce 5.0 MW (priorytet 2)
+1779740641,critical chce 8.0 MW (priorytet 1)
+1779740641,residential chce 10.0 MW (priorytet 3)
+1779740641,Prognoza: zmiana mocy OZE o 2.7 MW
+1779740641,residential chce 3.0 MW (priorytet 3)
+1779740641,Prognoza: zmiana mocy OZE o -2.3 MW
+23,OZE 82.9 MW | Popyt 100.0 MW | Bilans 16.0 MW | Bateria 67% | STABLE
+1779740641,industrial chce 5.0 MW (priorytet 2)
+1779740641,critical chce 8.0 MW (priorytet 1)
+1779740641,residential chce 3.0 MW (priorytet 3)
+1779740641,Prognoza: zmiana mocy OZE o -0.7 MW
+24,OZE 82.2 MW | Popyt 100.0 MW | Bilans 16.0 MW | Bateria 66% | STABLE
+1779740641,industrial chce 5.0 MW (priorytet 2)
+1779740641,critical chce 8.0 MW (priorytet 1)

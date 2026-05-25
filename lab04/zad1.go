@@ -2,6 +2,26 @@ package main
 
 import (
 	"context"
+	"encoding/csv"
+	"fmt"
+	"math"
+	"math/rand"
+	"os"
+	"os/signal"
+	"path/filepath"
+	"sync"
+	"syscall"
+	"time"
+)
+
+const (
+	WeatherStep       = 5 * time.Millisecond
+	GridStep          = 100 * time.Millisecond
+	WeatherPerGrid    = 12
+	ForecastHorizon   = 5
+	PredictorBufSize  = WeatherPerGrid
+	MaxSimGridSteps   = 24
+	BatteryCapacityMW = 100.0
 )
 
 type DemandReport struct {
@@ -51,13 +71,6 @@ type DataLogger interface {
 	Log(entry LogEntry)
 }
 
-type Channels struct {
-	WeatherPub   []chan WeatherData
-	ForecastChan chan ForecastReport
-	DemandChan   chan DemandReport
-	LoggerChan   chan LogEntry
-}
-
 type WeatherData struct {
 	WindSpeed float64
 	Sunlight  float64
@@ -67,4 +80,586 @@ type WeatherData struct {
 type LogEntry struct {
 	TimeStep int64
 	Message  string
+}
+
+type WeatherStation struct {
+	out chan<- WeatherData
+}
+
+func NewWeatherStation(out chan<- WeatherData) *WeatherStation {
+	return &WeatherStation{out: out}
+}
+
+func (w *WeatherStation) Run(ctx context.Context) {
+	ticker := time.NewTicker(WeatherStep)
+	defer ticker.Stop()
+
+	var wind float64 = 10
+	var sun float64 = 50
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case t := <-ticker.C:
+			wind += rand.Float64()*2 - 1
+			if wind < 0 {
+				wind = 0
+			}
+			if wind > 30 {
+				wind = 30
+			}
+			sun += rand.Float64()*4 - 2
+			if sun < 0 {
+				sun = 0
+			}
+			if sun > 100 {
+				sun = 100
+			}
+
+			data := WeatherData{
+				WindSpeed: wind,
+				Sunlight:  sun,
+				Timestamp: t.UnixNano(),
+			}
+
+			select {
+			case w.out <- data:
+			case <-ctx.Done():
+				return
+			}
+		}
+	}
+}
+
+type Broadcaster struct {
+	in          <-chan WeatherData
+	subscribers []chan WeatherData
+}
+
+func NewBroadcaster(in <-chan WeatherData, subs []chan WeatherData) *Broadcaster {
+	return &Broadcaster{in: in, subscribers: subs}
+}
+
+func (b *Broadcaster) Run(ctx context.Context) {
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case data := <-b.in:
+			for _, ch := range b.subscribers {
+				select {
+				case ch <- data:
+				default:
+				}
+			}
+		}
+	}
+}
+
+type WindFarm struct {
+	weatherSub <-chan WeatherData
+	mu         sync.RWMutex
+	currentMW  float64
+}
+
+func NewWindFarm(weatherSub <-chan WeatherData) *WindFarm {
+	return &WindFarm{weatherSub: weatherSub}
+}
+
+func (w *WindFarm) Run(ctx context.Context) {
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case data := <-w.weatherSub:
+			power := math.Min(200, data.WindSpeed*data.WindSpeed/10)
+			w.mu.Lock()
+			w.currentMW = power
+			w.mu.Unlock()
+		}
+	}
+}
+
+func (w *WindFarm) CurrentPower() float64 {
+	w.mu.RLock()
+	defer w.mu.RUnlock()
+	return w.currentMW
+}
+
+type SimplePredictor struct {
+	weatherSub   <-chan WeatherData
+	forecastChan chan<- ForecastReport
+	logger       DataLogger
+
+	buf []WeatherData
+}
+
+func NewSimplePredictor(sub <-chan WeatherData, forecastChan chan<- ForecastReport, logger DataLogger) *SimplePredictor {
+	return &SimplePredictor{
+		weatherSub:   sub,
+		forecastChan: forecastChan,
+		logger:       logger,
+		buf:          make([]WeatherData, 0, PredictorBufSize),
+	}
+}
+
+func (p *SimplePredictor) Run(ctx context.Context) {
+	weatherTicker := time.NewTicker(WeatherStep)
+	gridTicker := time.NewTicker(GridStep)
+	defer weatherTicker.Stop()
+	defer gridTicker.Stop()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-weatherTicker.C:
+			select {
+			case data := <-p.weatherSub:
+				if len(p.buf) >= PredictorBufSize {
+					p.buf = p.buf[1:]
+				}
+				p.buf = append(p.buf, data)
+			default:
+			}
+		case <-gridTicker.C:
+			if len(p.buf) >= 2 {
+				first := p.buf[0]
+				last := p.buf[len(p.buf)-1]
+				deltaWind := last.WindSpeed - first.WindSpeed
+				deltaMW := deltaWind * 2
+				fr := ForecastReport{
+					HorizonSteps: ForecastHorizon,
+					DeltaMW:      deltaMW,
+				}
+				select {
+				case p.forecastChan <- fr:
+				default:
+				}
+				p.logger.Log(LogEntry{
+					TimeStep: time.Now().Unix(),
+					Message:  fmt.Sprintf("Prognoza: zmiana mocy OZE o %.1f MW", deltaMW),
+				})
+			}
+		}
+	}
+}
+
+type Battery struct {
+	mu  sync.Mutex
+	soc float64
+	cap float64
+}
+
+func NewBattery(capacityMW float64) *Battery {
+	return &Battery{cap: capacityMW, soc: 0.5}
+}
+
+func (b *Battery) Charge(mw float64) {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	if mw <= 0 {
+		return
+	}
+	energy := mw
+	maxEnergy := b.cap * (1 - b.soc)
+	if energy > maxEnergy {
+		energy = maxEnergy
+	}
+	b.soc += energy / b.cap
+	if b.soc > 1 {
+		b.soc = 1
+	}
+}
+
+func (b *Battery) Discharge(mw float64) float64 {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	if mw <= 0 {
+		return 0
+	}
+	maxEnergy := b.cap * b.soc
+	energy := mw
+	if energy > maxEnergy {
+		energy = maxEnergy
+	}
+	b.soc -= energy / b.cap
+	if b.soc < 0 {
+		b.soc = 0
+	}
+	return energy
+}
+
+func (b *Battery) SoC() float64 {
+	b.mu.Lock()
+	defer b.mu.Unlock()
+	return b.soc
+}
+
+type BaseConsumer struct {
+	id         string
+	priority   int
+	demandChan chan<- DemandReport
+	supplyChan chan SupplyStatus
+	logger     DataLogger
+}
+
+func NewBaseConsumer(id string, priority int, demandChan chan<- DemandReport, logger DataLogger) *BaseConsumer {
+	return &BaseConsumer{
+		id:         id,
+		priority:   priority,
+		demandChan: demandChan,
+		supplyChan: make(chan SupplyStatus, 1),
+		logger:     logger,
+	}
+}
+
+func (c *BaseConsumer) DemandChan() chan<- DemandReport {
+	return c.demandChan
+}
+
+func (c *BaseConsumer) SupplyChan() <-chan SupplyStatus {
+	return c.supplyChan
+}
+
+func (c *BaseConsumer) Run(ctx context.Context) {
+	ticker := time.NewTicker(GridStep)
+	defer ticker.Stop()
+
+	step := 0
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			step++
+			demand := c.profile(step)
+			dr := DemandReport{
+				ID:       c.id,
+				MW:       demand,
+				Priority: c.priority,
+			}
+			select {
+			case c.demandChan <- dr:
+			case <-ctx.Done():
+				return
+			}
+
+			select {
+			case status := <-c.supplyChan:
+				if status.AllocatedMW < demand {
+					c.logger.Log(LogEntry{
+						TimeStep: int64(step),
+						Message:  fmt.Sprintf("%s: dostał %.2f / %.2f (%s)", c.id, status.AllocatedMW, demand, status.Reason),
+					})
+				}
+			case <-ctx.Done():
+				return
+			}
+		}
+	}
+}
+
+func (c *BaseConsumer) profile(step int) float64 {
+	hour := step % 24
+	switch c.priority {
+	case 3:
+		if (hour >= 7 && hour <= 9) || (hour >= 18 && hour <= 22) {
+			return 10
+		}
+		return 3
+	case 2:
+		if hour >= 6 && hour <= 18 {
+			if hour%5 == 0 {
+				return 40
+			}
+			return 30
+		}
+		return 5
+	case 1:
+		return 8
+	default:
+		return 5
+	}
+}
+
+type GridHub struct {
+	energySource EnergySource
+	battery      EnergyStorage
+
+	forecastChan <-chan ForecastReport
+	demandChan   <-chan DemandReport
+	logger       DataLogger
+
+	consumersMu sync.Mutex
+	consumers   map[string]*BaseConsumer
+
+	lastDemandMu sync.Mutex
+	lastDemand   map[string]DemandReport
+
+	currentForecast ForecastReport
+}
+
+func NewGridHub(es EnergySource, batt EnergyStorage, forecast <-chan ForecastReport, demand <-chan DemandReport, logger DataLogger) *GridHub {
+	return &GridHub{
+		energySource: es,
+		battery:      batt,
+		forecastChan: forecast,
+		demandChan:   demand,
+		logger:       logger,
+		consumers:    make(map[string]*BaseConsumer),
+		lastDemand:   make(map[string]DemandReport),
+	}
+}
+
+func (g *GridHub) RegisterConsumer(c *BaseConsumer) {
+	g.consumersMu.Lock()
+	g.consumers[c.id] = c
+	g.consumersMu.Unlock()
+}
+
+func (g *GridHub) Run(ctx context.Context) {
+	ticker := time.NewTicker(GridStep)
+	defer ticker.Stop()
+
+	step := 0
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case fr := <-g.forecastChan:
+			g.currentForecast = fr
+		case dr := <-g.demandChan:
+			g.lastDemandMu.Lock()
+			g.lastDemand[dr.ID] = dr
+			g.lastDemandMu.Unlock()
+			g.logger.Log(LogEntry{
+				TimeStep: time.Now().Unix(),
+				Message:  fmt.Sprintf("%s chce %.1f MW (priorytet %d)", dr.ID, dr.MW, dr.Priority),
+			})
+		case <-ticker.C:
+			step++
+			g.balance(step)
+		}
+	}
+}
+
+func (g *GridHub) balance(step int) {
+	type demandInfo struct {
+		id       string
+		priority int
+		demand   float64
+	}
+
+	var demands []demandInfo
+
+	g.consumersMu.Lock()
+	for id, c := range g.consumers {
+		_ = c
+		g.lastDemandMu.Lock()
+		dr, ok := g.lastDemand[id]
+		g.lastDemandMu.Unlock()
+		if !ok {
+			continue
+		}
+		demands = append(demands, demandInfo{id: id, priority: dr.Priority, demand: dr.MW})
+	}
+	g.consumersMu.Unlock()
+
+	totalDemand := 0.0
+	for _, d := range demands {
+		totalDemand += d.demand
+	}
+
+	production := g.energySource.CurrentPower()
+	balance := production - totalDemand
+
+	if balance > 0 {
+		g.battery.Charge(balance)
+	} else if balance < 0 {
+		need := -balance
+		got := g.battery.Discharge(need)
+		balance += got
+	}
+
+	state := "STABLE"
+	if balance < 0 {
+		state = "CRITICAL"
+	}
+
+	if balance < 0 {
+		for i := 0; i < len(demands)-1; i++ {
+			for j := i + 1; j < len(demands); j++ {
+				if demands[i].priority < demands[j].priority {
+					demands[i], demands[j] = demands[j], demands[i]
+				}
+			}
+		}
+		for _, d := range demands {
+			if balance >= 0 {
+				break
+			}
+			g.consumersMu.Lock()
+			c := g.consumers[d.id]
+			g.consumersMu.Unlock()
+			if c == nil {
+				continue
+			}
+			select {
+			case c.supplyChan <- SupplyStatus{AllocatedMW: 0, Reason: "LoadShed"}:
+			default:
+			}
+			balance += d.demand
+			g.logger.Log(LogEntry{
+				TimeStep: int64(step),
+				Message:  fmt.Sprintf("Odłączono %s (priorytet %d, pobór %.1f MW)", d.id, d.priority, d.demand),
+			})
+		}
+	}
+
+	for _, d := range demands {
+		g.consumersMu.Lock()
+		c := g.consumers[d.id]
+		g.consumersMu.Unlock()
+		if c == nil {
+			continue
+		}
+		alloc := d.demand
+		if balance < 0 {
+			alloc = math.Max(0, d.demand+balance/float64(len(demands)))
+		}
+		select {
+		case c.supplyChan <- SupplyStatus{AllocatedMW: alloc, Reason: state}:
+		default:
+		}
+	}
+
+	g.logger.Log(LogEntry{
+		TimeStep: int64(step),
+		Message: fmt.Sprintf("OZE %.1f MW | Popyt %.1f MW | Bilans %.1f MW | Bateria %.0f%% | %s",
+			production, g.battery.SoC()*100, totalDemand, balance, state),
+	})
+}
+
+type CSVLogger struct {
+	ch   chan LogEntry
+	file *os.File
+	w    *csv.Writer
+	wg   *sync.WaitGroup
+}
+
+func NewCSVLogger(path string, wg *sync.WaitGroup) (*CSVLogger, error) {
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return nil, err
+	}
+	f, err := os.Create(path)
+	if err != nil {
+		return nil, err
+	}
+	w := csv.NewWriter(f)
+	_ = w.Write([]string{"timestep", "message"})
+	return &CSVLogger{
+		ch:   make(chan LogEntry, 1000),
+		file: f,
+		w:    w,
+		wg:   wg,
+	}, nil
+}
+
+func (l *CSVLogger) Run(ctx context.Context) {
+	l.wg.Add(1)
+	defer l.wg.Done()
+	defer func() {
+		for {
+			select {
+			case e := <-l.ch:
+				_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
+			default:
+				l.w.Flush()
+				l.file.Close()
+				return
+			}
+		}
+	}()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case e := <-l.ch:
+			_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
+		}
+	}
+}
+
+func (l *CSVLogger) Log(entry LogEntry) {
+	select {
+	case l.ch <- entry:
+	default:
+	}
+}
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	ctx, cancel := context.WithCancel(context.Background())
+	wg := &sync.WaitGroup{}
+
+	sigCh := make(chan os.Signal, 1)
+	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
+
+	logger, err := NewCSVLogger("logs/grid_history.csv", wg)
+	if err != nil {
+		fmt.Println("logger error:", err)
+		return
+	}
+
+	weatherRaw := make(chan WeatherData, 10)
+	weatherForFarm := make(chan WeatherData, 10)
+	weatherForPredictor := make(chan WeatherData, 10)
+	forecastChan := make(chan ForecastReport, 1)
+	demandChan := make(chan DemandReport, 100)
+
+	ws := NewWeatherStation(weatherRaw)
+	bc := NewBroadcaster(weatherRaw, []chan WeatherData{weatherForFarm, weatherForPredictor})
+	wf := NewWindFarm(weatherForFarm)
+	batt := NewBattery(BatteryCapacityMW)
+	pred := NewSimplePredictor(weatherForPredictor, forecastChan, logger)
+	grid := NewGridHub(wf, batt, forecastChan, demandChan, logger)
+
+	res := NewBaseConsumer("residential", 3, demandChan, logger)
+	ind := NewBaseConsumer("industrial", 2, demandChan, logger)
+	crit := NewBaseConsumer("critical", 1, demandChan, logger)
+
+	grid.RegisterConsumer(res)
+	grid.RegisterConsumer(ind)
+	grid.RegisterConsumer(crit)
+
+	go logger.Run(ctx)
+	go ws.Run(ctx)
+	go bc.Run(ctx)
+	go wf.Run(ctx)
+	go pred.Run(ctx)
+	go grid.Run(ctx)
+	go res.Run(ctx)
+	go ind.Run(ctx)
+	go crit.Run(ctx)
+
+	done := make(chan struct{})
+	go func() {
+		defer close(done)
+		time.Sleep(time.Duration(MaxSimGridSteps) * GridStep)
+	}()
+
+	select {
+	case <-sigCh:
+		fmt.Println("Zamykanie...")
+	case <-done:
+		fmt.Println("Koniec symulacji.")
+	}
+
+	cancel()
+	wg.Wait()
+	fmt.Println("Zamknięto system.")
 }
