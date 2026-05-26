@@ -575,6 +575,7 @@ func (l *CSVLogger) Run(ctx context.Context) {
 			select {
 			case e := <-l.ch:
 				_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
+				fmt.Printf("[%d] %s\n", e.TimeStep, e.Message)
 			default:
 				l.w.Flush()
 				l.file.Close()
@@ -589,6 +590,7 @@ func (l *CSVLogger) Run(ctx context.Context) {
 			return
 		case e := <-l.ch:
 			_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
+			fmt.Printf("[%d] %s\n", e.TimeStep, e.Message)
 		}
 	}
 }
