@@ -648,18 +648,8 @@ func main() {
 	go ind.Run(ctx)
 	go crit.Run(ctx)
 
-	done := make(chan struct{})
-	go func() {
-		defer close(done)
-		time.Sleep(time.Duration(MaxSimGridSteps) * GridStep)
-	}()
-
-	select {
-	case <-sigCh:
-		fmt.Println("Zamykanie...")
-	case <-done:
-		fmt.Println("Koniec symulacji.")
-	}
+	<-sigCh
+	fmt.Println("Zamykanie...")
 
 	cancel()
 	wg.Wait()
