@@ -390,6 +390,8 @@ type GridHub struct {
 
 	forecastChan <-chan ForecastReport
 	demandChan   <-chan DemandReport
+	weatherSub   <-chan WeatherData
+	lastWeather  WeatherData
 	logger       DataLogger
 
 	consumersMu sync.Mutex
@@ -401,12 +403,13 @@ type GridHub struct {
 	currentForecast ForecastReport
 }
 
-func NewGridHub(es EnergySource, batt EnergyStorage, forecast <-chan ForecastReport, demand <-chan DemandReport, logger DataLogger) *GridHub {
+func NewGridHub(es EnergySource, batt EnergyStorage, forecast <-chan ForecastReport, demand <-chan DemandReport, weather <-chan WeatherData, logger DataLogger) *GridHub {
 	return &GridHub{
 		energySource: es,
 		battery:      batt,
 		forecastChan: forecast,
 		demandChan:   demand,
+		weatherSub:   weather,
 		logger:       logger,
 		consumers:    make(map[string]*BaseConsumer),
 		lastDemand:   make(map[string]DemandReport),
@@ -438,6 +441,8 @@ func (g *GridHub) Run(ctx context.Context) {
 				TimeStep: time.Now().Unix(),
 				Message:  fmt.Sprintf("%s chce %.1f MW (priorytet %d)", dr.ID, dr.MW, dr.Priority),
 			})
+		case wd := <-g.weatherSub:
+			g.lastWeather = wd
 		case <-ticker.C:
 			step++
 			g.balance(step)
@@ -537,8 +542,19 @@ func (g *GridHub) balance(step int) {
 
 	g.logger.Log(LogEntry{
 		TimeStep: int64(step),
-		Message: fmt.Sprintf("OZE %.1f MW | Popyt %.1f MW | Bilans %.1f MW | Bateria %.0f%% | %s",
-			production, g.battery.SoC()*100, totalDemand, balance, state),
+		Message: fmt.Sprintf(
+			"[Pogoda] Wiatr: %.1f km/h | Słońce: %.0f%%\n"+
+				"[Produkcja] OZE: %.1f MW | Konwencjonalna: %.1f MW | Baterie: %.0f%% (SoC)\n"+
+				"[Sieć] Popyt: %.1f MW | Bilans: %.1f MW | Stan: %s",
+			g.lastWeather.WindSpeed,
+			g.lastWeather.Sunlight,
+			production,
+			0.0,
+			g.battery.SoC()*100,
+			totalDemand,
+			balance,
+			state,
+		),
 	})
 }
 
@@ -604,6 +620,7 @@ func (l *CSVLogger) Log(entry LogEntry) {
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
+	weatherForGrid := make(chan WeatherData, 10)
 
 	ctx, cancel := context.WithCancel(context.Background())
 	wg := &sync.WaitGroup{}
@@ -624,11 +641,16 @@ func main() {
 	demandChan := make(chan DemandReport, 100)
 
 	ws := NewWeatherStation(weatherRaw)
-	bc := NewBroadcaster(weatherRaw, []chan WeatherData{weatherForFarm, weatherForPredictor})
+	bc := NewBroadcaster(weatherRaw, []chan WeatherData{
+		weatherForFarm,
+		weatherForPredictor,
+		weatherForGrid,
+	})
+
 	wf := NewWindFarm(weatherForFarm)
 	batt := NewBattery(BatteryCapacityMW)
 	pred := NewSimplePredictor(weatherForPredictor, forecastChan, logger)
-	grid := NewGridHub(wf, batt, forecastChan, demandChan, logger)
+	grid := NewGridHub(wf, batt, forecastChan, demandChan, weatherForGrid, logger)
 
 	res := NewBaseConsumer("residential", 3, demandChan, logger)
 	ind := NewBaseConsumer("industrial", 2, demandChan, logger)
