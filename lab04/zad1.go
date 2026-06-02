@@ -40,6 +40,17 @@ type ForecastReport struct {
 	DeltaMW      float64
 }
 
+type WeatherData struct {
+	WindSpeed float64
+	Sunlight  float64
+	Timestamp int64
+}
+
+type LogEntry struct {
+	TimeStep int64
+	Message  string
+}
+
 type EnergySource interface {
 	Run(ctx context.Context)
 	CurrentPower() float64
@@ -55,15 +66,20 @@ type Consumer interface {
 	SupplyChan() <-chan SupplyStatus
 }
 
+type BatteryCommand struct {
+	ChargeMW    float64
+	DischargeMW float64
+	GetSoC      bool
+	Reply       chan float64
+}
+
 type EnergyStorage interface {
-	Charge(mw float64)
-	Discharge(mw float64) float64
-	SoC() float64
+	Run(ctx context.Context)
+	CmdChan() chan<- BatteryCommand
 }
 
 type WeatherProvider interface {
 	Run(ctx context.Context)
-	Subscribe() <-chan WeatherData
 }
 
 type DataLogger interface {
@@ -71,15 +87,11 @@ type DataLogger interface {
 	Log(entry LogEntry)
 }
 
-type WeatherData struct {
-	WindSpeed float64
-	Sunlight  float64
-	Timestamp int64
-}
-
-type LogEntry struct {
-	TimeStep int64
-	Message  string
+type ConventionalPlant interface {
+	Run(ctx context.Context)
+	CurrentPower() float64
+	Start()
+	IsOn() bool
 }
 
 type WeatherStation struct {
@@ -187,6 +199,68 @@ func (w *WindFarm) CurrentPower() float64 {
 	return w.currentMW
 }
 
+type CoalPlant struct {
+	mu        sync.Mutex
+	state     string
+	currentMW float64
+	targetMW  float64
+}
+
+func NewCoalPlant(targetMW float64) *CoalPlant {
+	return &CoalPlant{
+		state:     "OFF",
+		currentMW: 0,
+		targetMW:  targetMW,
+	}
+}
+
+func (c *CoalPlant) Start() {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	if c.state == "OFF" {
+		c.state = "WARMING"
+	}
+}
+
+func (c *CoalPlant) IsOn() bool {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	return c.state == "ON"
+}
+
+func (c *CoalPlant) Run(ctx context.Context) {
+	ticker := time.NewTicker(GridStep)
+	defer ticker.Stop()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case <-ticker.C:
+			c.mu.Lock()
+			switch c.state {
+			case "OFF":
+				c.currentMW = 0
+			case "WARMING":
+				c.currentMW += c.targetMW / 3
+				if c.currentMW >= c.targetMW {
+					c.currentMW = c.targetMW
+					c.state = "ON"
+				}
+			case "ON":
+				c.currentMW = c.targetMW
+			}
+			c.mu.Unlock()
+		}
+	}
+}
+
+func (c *CoalPlant) CurrentPower() float64 {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	return c.currentMW
+}
+
 type SimplePredictor struct {
 	weatherSub   <-chan WeatherData
 	forecastChan chan<- ForecastReport
@@ -247,54 +321,63 @@ func (p *SimplePredictor) Run(ctx context.Context) {
 }
 
 type Battery struct {
-	mu  sync.Mutex
-	soc float64
 	cap float64
+	soc float64
+	cmd chan BatteryCommand
 }
 
 func NewBattery(capacityMW float64) *Battery {
-	return &Battery{cap: capacityMW, soc: 0.5}
-}
-
-func (b *Battery) Charge(mw float64) {
-	b.mu.Lock()
-	defer b.mu.Unlock()
-	if mw <= 0 {
-		return
-	}
-	energy := mw
-	maxEnergy := b.cap * (1 - b.soc)
-	if energy > maxEnergy {
-		energy = maxEnergy
-	}
-	b.soc += energy / b.cap
-	if b.soc > 1 {
-		b.soc = 1
+	return &Battery{
+		cap: capacityMW,
+		soc: 0.5,
+		cmd: make(chan BatteryCommand, 20),
 	}
 }
 
-func (b *Battery) Discharge(mw float64) float64 {
-	b.mu.Lock()
-	defer b.mu.Unlock()
-	if mw <= 0 {
-		return 0
-	}
-	maxEnergy := b.cap * b.soc
-	energy := mw
-	if energy > maxEnergy {
-		energy = maxEnergy
-	}
-	b.soc -= energy / b.cap
-	if b.soc < 0 {
-		b.soc = 0
-	}
-	return energy
+func (b *Battery) CmdChan() chan<- BatteryCommand {
+	return b.cmd
 }
 
-func (b *Battery) SoC() float64 {
-	b.mu.Lock()
-	defer b.mu.Unlock()
-	return b.soc
+func (b *Battery) Run(ctx context.Context) {
+	for {
+		select {
+		case <-ctx.Done():
+			return
+		case cmd := <-b.cmd:
+			if cmd.ChargeMW > 0 {
+				maxEnergy := b.cap * (1 - b.soc)
+				energy := cmd.ChargeMW
+				if energy > maxEnergy {
+					energy = maxEnergy
+				}
+				b.soc += energy / b.cap
+				if b.soc > 1 {
+					b.soc = 1
+				}
+			}
+
+			if cmd.DischargeMW > 0 {
+				maxEnergy := b.cap * b.soc
+				energy := cmd.DischargeMW
+				if energy > maxEnergy {
+					energy = maxEnergy
+				}
+				b.soc -= energy / b.cap
+				if b.soc < 0 {
+					b.soc = 0
+				}
+				if cmd.Reply != nil {
+					cmd.Reply <- energy
+				}
+			}
+
+			if cmd.GetSoC {
+				if cmd.Reply != nil {
+					cmd.Reply <- b.soc
+				}
+			}
+		}
+	}
 }
 
 type BaseConsumer struct {
@@ -385,8 +468,9 @@ func (c *BaseConsumer) profile(step int) float64 {
 }
 
 type GridHub struct {
-	energySource EnergySource
-	battery      EnergyStorage
+	renewable EnergySource
+	thermal   ConventionalPlant
+	battery   EnergyStorage
 
 	forecastChan <-chan ForecastReport
 	demandChan   <-chan DemandReport
@@ -403,10 +487,12 @@ type GridHub struct {
 	currentForecast ForecastReport
 }
 
-func NewGridHub(es EnergySource, batt EnergyStorage, forecast <-chan ForecastReport, demand <-chan DemandReport, weather <-chan WeatherData, logger DataLogger) *GridHub {
+func NewGridHub(ren EnergySource, therm ConventionalPlant, batt EnergyStorage, forecast <-chan ForecastReport, demand <-chan DemandReport, weather <-chan WeatherData, logger DataLogger) *GridHub {
 	return &GridHub{
-		energySource: es,
-		battery:      batt,
+		renewable: ren,
+		thermal:   therm,
+		battery:   batt,
+
 		forecastChan: forecast,
 		demandChan:   demand,
 		weatherSub:   weather,
@@ -431,8 +517,19 @@ func (g *GridHub) Run(ctx context.Context) {
 		select {
 		case <-ctx.Done():
 			return
+
 		case fr := <-g.forecastChan:
 			g.currentForecast = fr
+			if fr.DeltaMW < -10 {
+				if !g.thermal.IsOn() {
+					g.logger.Log(LogEntry{
+						TimeStep: time.Now().Unix(),
+						Message:  "Prognoza spadku OZE — uruchamiam elektrownię konwencjonalną",
+					})
+					g.thermal.Start()
+				}
+			}
+
 		case dr := <-g.demandChan:
 			g.lastDemandMu.Lock()
 			g.lastDemand[dr.ID] = dr
@@ -441,8 +538,10 @@ func (g *GridHub) Run(ctx context.Context) {
 				TimeStep: time.Now().Unix(),
 				Message:  fmt.Sprintf("%s chce %.1f MW (priorytet %d)", dr.ID, dr.MW, dr.Priority),
 			})
+
 		case wd := <-g.weatherSub:
 			g.lastWeather = wd
+
 		case <-ticker.C:
 			step++
 			g.balance(step)
@@ -477,14 +576,30 @@ func (g *GridHub) balance(step int) {
 		totalDemand += d.demand
 	}
 
-	production := g.energySource.CurrentPower()
+	renewProd := g.renewable.CurrentPower()
+	thermProd := g.thermal.CurrentPower()
+	production := renewProd + thermProd
 	balance := production - totalDemand
 
+	socReply := make(chan float64)
+	g.battery.CmdChan() <- BatteryCommand{GetSoC: true, Reply: socReply}
+	soc := <-socReply
+
 	if balance > 0 {
-		g.battery.Charge(balance)
+		if soc < 1 {
+			g.battery.CmdChan() <- BatteryCommand{ChargeMW: balance}
+		} else {
+			g.logger.Log(LogEntry{
+				TimeStep: int64(step),
+				Message:  fmt.Sprintf("Curtailment OZE: odrzucono nadwyżkę %.1f MW (SoC=100%%)", balance),
+			})
+			balance = 0
+		}
 	} else if balance < 0 {
 		need := -balance
-		got := g.battery.Discharge(need)
+		reply := make(chan float64)
+		g.battery.CmdChan() <- BatteryCommand{DischargeMW: need, Reply: reply}
+		got := <-reply
 		balance += got
 	}
 
@@ -540,6 +655,10 @@ func (g *GridHub) balance(step int) {
 		}
 	}
 
+	socReply2 := make(chan float64)
+	g.battery.CmdChan() <- BatteryCommand{GetSoC: true, Reply: socReply2}
+	soc2 := <-socReply2
+
 	g.logger.Log(LogEntry{
 		TimeStep: int64(step),
 		Message: fmt.Sprintf(
@@ -548,9 +667,9 @@ func (g *GridHub) balance(step int) {
 				"[Sieć] Popyt: %.1f MW | Bilans: %.1f MW | Stan: %s",
 			g.lastWeather.WindSpeed,
 			g.lastWeather.Sunlight,
-			production,
-			0.0,
-			g.battery.SoC()*100,
+			renewProd,
+			thermProd,
+			soc2*100,
 			totalDemand,
 			balance,
 			state,
@@ -586,24 +705,21 @@ func NewCSVLogger(path string, wg *sync.WaitGroup) (*CSVLogger, error) {
 func (l *CSVLogger) Run(ctx context.Context) {
 	l.wg.Add(1)
 	defer l.wg.Done()
-	defer func() {
-		for {
-			select {
-			case e := <-l.ch:
-				_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
-				fmt.Printf("[%d] %s\n", e.TimeStep, e.Message)
-			default:
-				l.w.Flush()
-				l.file.Close()
-				return
-			}
-		}
-	}()
 
 	for {
 		select {
 		case <-ctx.Done():
-			return
+			for {
+				select {
+				case e := <-l.ch:
+					_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
+					fmt.Printf("[%d] %s\n", e.TimeStep, e.Message)
+				default:
+					l.w.Flush()
+					l.file.Close()
+					return
+				}
+			}
 		case e := <-l.ch:
 			_ = l.w.Write([]string{fmt.Sprint(e.TimeStep), e.Message})
 			fmt.Printf("[%d] %s\n", e.TimeStep, e.Message)
@@ -612,10 +728,7 @@ func (l *CSVLogger) Run(ctx context.Context) {
 }
 
 func (l *CSVLogger) Log(entry LogEntry) {
-	select {
-	case l.ch <- entry:
-	default:
-	}
+	l.ch <- entry
 }
 
 func main() {
@@ -628,7 +741,7 @@ func main() {
 	sigCh := make(chan os.Signal, 1)
 	signal.Notify(sigCh, syscall.SIGINT, syscall.SIGTERM)
 
-	logger, err := NewCSVLogger("logs/grid_history.csv", wg)
+	logger, err := NewCSVLogger("logs/grid.csv", wg)
 	if err != nil {
 		fmt.Println("logger error:", err)
 		return
@@ -648,9 +761,10 @@ func main() {
 	})
 
 	wf := NewWindFarm(weatherForFarm)
+	coal := NewCoalPlant(150)
 	batt := NewBattery(BatteryCapacityMW)
 	pred := NewSimplePredictor(weatherForPredictor, forecastChan, logger)
-	grid := NewGridHub(wf, batt, forecastChan, demandChan, weatherForGrid, logger)
+	grid := NewGridHub(wf, coal, batt, forecastChan, demandChan, weatherForGrid, logger)
 
 	res := NewBaseConsumer("residential", 3, demandChan, logger)
 	ind := NewBaseConsumer("industrial", 2, demandChan, logger)
@@ -664,6 +778,8 @@ func main() {
 	go ws.Run(ctx)
 	go bc.Run(ctx)
 	go wf.Run(ctx)
+	go coal.Run(ctx)
+	go batt.Run(ctx)
 	go pred.Run(ctx)
 	go grid.Run(ctx)
 	go res.Run(ctx)
