@@ -1,551 +1,420 @@
 timestep,message
-1780412458,residential chce 3.0 MW (priorytet 3)
-1780412458,Prognoza: zmiana mocy OZE o 2.1 MW
-1,"[Pogoda] Wiatr: 8.9 km/h | Słońce: 45%
-[Produkcja] OZE: 8.2 MW | Konwencjonalna: 0.0 MW | Baterie: 55% (SoC)
-[Sieć] Popyt: 3.0 MW | Bilans: 5.2 MW | Stan: STABLE"
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,industrial chce 5.0 MW (priorytet 2)
-1780412458,residential chce 3.0 MW (priorytet 3)
-2,"[Pogoda] Wiatr: 13.2 km/h | Słońce: 46%
-[Produkcja] OZE: 17.4 MW | Konwencjonalna: 0.0 MW | Baterie: 57% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 1.4 MW | Stan: STABLE"
-1780412458,Prognoza: zmiana mocy OZE o 5.9 MW
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,industrial chce 5.0 MW (priorytet 2)
-1780412458,residential chce 3.0 MW (priorytet 3)
-3,"[Pogoda] Wiatr: 10.4 km/h | Słońce: 49%
-[Produkcja] OZE: 10.8 MW | Konwencjonalna: 0.0 MW | Baterie: 51% (SoC)
+1781010520,Zarejestrowano: residential (priorytet 3)
+1781010520,Zarejestrowano: industrial (priorytet 2)
+1781010520,Zarejestrowano: critical (priorytet 1)
+1781010521,Predictor: zmiana mocy OZE o -0.4 MW w ciągu 5 kroków
+1,"[Pogoda] Wiatr: 10.1 km/h | Słońce: 49%
+[Produkcja] OZE: 10.2 MW | Konwencjonalna: 0.0 MW | Baterie: 60% (SoC)
+[Sieć] Popyt: 0.0 MW | Bilans: 10.2 MW | Stan: STABLE"
+1781010521,Predictor: zmiana mocy OZE o 0.1 MW w ciągu 5 kroków
+2,"[Pogoda] Wiatr: 11.5 km/h | Słońce: 49%
+[Produkcja] OZE: 13.3 MW | Konwencjonalna: 0.0 MW | Baterie: 57% (SoC)
 [Sieć] Popyt: 16.0 MW | Bilans: 0.0 MW | Stan: STABLE"
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,industrial chce 5.0 MW (priorytet 2)
-1780412458,Prognoza: zmiana mocy OZE o -6.4 MW
-1780412458,Prognoza: zmiana mocy OZE o -6.5 MW
-4,"[Pogoda] Wiatr: 6.1 km/h | Słońce: 45%
-[Produkcja] OZE: 3.7 MW | Konwencjonalna: 0.0 MW | Baterie: 39% (SoC)
+1781010521,Predictor: zmiana mocy OZE o -4.5 MW w ciągu 5 kroków
+3,"[Pogoda] Wiatr: 4.4 km/h | Słońce: 45%
+[Produkcja] OZE: 2.0 MW | Konwencjonalna: 0.0 MW | Baterie: 43% (SoC)
 [Sieć] Popyt: 16.0 MW | Bilans: 0.0 MW | Stan: STABLE"
-1780412458,residential chce 3.0 MW (priorytet 3)
-1780412458,industrial chce 5.0 MW (priorytet 2)
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,Prognoza: zmiana mocy OZE o -0.2 MW
-5,"[Pogoda] Wiatr: 4.0 km/h | Słońce: 54%
-[Produkcja] OZE: 1.6 MW | Konwencjonalna: 0.0 MW | Baterie: 25% (SoC)
+1781010521,Predictor: zmiana mocy OZE o -0.6 MW w ciągu 5 kroków
+4,"[Pogoda] Wiatr: 4.6 km/h | Słońce: 45%
+[Produkcja] OZE: 2.1 MW | Konwencjonalna: 0.0 MW | Baterie: 30% (SoC)
 [Sieć] Popyt: 16.0 MW | Bilans: 0.0 MW | Stan: STABLE"
-1780412458,residential chce 3.0 MW (priorytet 3)
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,industrial chce 5.0 MW (priorytet 2)
-1780412458,Prognoza: zmiana mocy OZE o -1.4 MW
-6,"[Pogoda] Wiatr: 2.9 km/h | Słońce: 55%
-[Produkcja] OZE: 0.8 MW | Konwencjonalna: 0.0 MW | Baterie: 10% (SoC)
+1781010521,Predictor: zmiana mocy OZE o -5.1 MW w ciągu 5 kroków
+5,"[Pogoda] Wiatr: 3.4 km/h | Słońce: 52%
+[Produkcja] OZE: 1.2 MW | Konwencjonalna: 0.0 MW | Baterie: 15% (SoC)
 [Sieć] Popyt: 16.0 MW | Bilans: 0.0 MW | Stan: STABLE"
-1780412458,residential chce 3.0 MW (priorytet 3)
-1780412458,industrial chce 30.0 MW (priorytet 2)
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,residential chce 10.0 MW (priorytet 3)
-1780412458,Prognoza: zmiana mocy OZE o -2.3 MW
-7,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-7,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-7,"[Pogoda] Wiatr: 1.1 km/h | Słońce: 45%
-[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 48.0 MW | Bilans: 1.6 MW | Stan: CRITICAL"
-7,residential: dostał 0.00 / 10.00 (LoadShed)
-6,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412458,industrial chce 30.0 MW (priorytet 2)
-1780412458,critical chce 8.0 MW (priorytet 1)
-8,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-8,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-8,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-8,"[Pogoda] Wiatr: 2.5 km/h | Słońce: 44%
-[Produkcja] OZE: 0.6 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 48.0 MW | Bilans: 0.6 MW | Stan: CRITICAL"
-1780412458,industrial chce 30.0 MW (priorytet 2)
-8,industrial: dostał 0.00 / 30.00 (LoadShed)
-7,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,residential chce 10.0 MW (priorytet 3)
-1780412458,Prognoza: zmiana mocy OZE o -1.4 MW
-1780412458,residential chce 10.0 MW (priorytet 3)
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,Prognoza: zmiana mocy OZE o -2.3 MW
-9,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-9,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-9,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-9,"[Pogoda] Wiatr: 2.0 km/h | Słońce: 42%
-[Produkcja] OZE: 0.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 48.0 MW | Bilans: 0.4 MW | Stan: CRITICAL"
-1780412458,industrial chce 30.0 MW (priorytet 2)
-9,residential: dostał 0.00 / 10.00 (LoadShed)
-9,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412458,critical chce 8.0 MW (priorytet 1)
-1780412458,residential chce 3.0 MW (priorytet 3)
-1780412458,Prognoza: zmiana mocy OZE o -4.0 MW
-10,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-10,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-10,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-10,"[Pogoda] Wiatr: 1.0 km/h | Słońce: 45%
-[Produkcja] OZE: 0.3 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.3 MW | Stan: CRITICAL"
-1780412458,industrial chce 40.0 MW (priorytet 2)
-10,industrial: dostał 0.00 / 40.00 (LoadShed)
-1780412459,Prognoza: zmiana mocy OZE o 2.2 MW
-11,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412459,critical chce 8.0 MW (priorytet 1)
-1780412459,industrial chce 30.0 MW (priorytet 2)
-11,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-11,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-11,residential: dostał 0.00 / 3.00 (LoadShed)
-11,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-11,"[Pogoda] Wiatr: 1.6 km/h | Słońce: 41%
-[Produkcja] OZE: 0.3 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.3 MW | Stan: CRITICAL"
-1780412459,residential chce 3.0 MW (priorytet 3)
-12,critical: dostał 0.00 / 8.00 (LoadShed)
-12,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412459,critical chce 8.0 MW (priorytet 1)
-12,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-12,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-12,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-12,"[Pogoda] Wiatr: 2.3 km/h | Słońce: 41%
-[Produkcja] OZE: 0.5 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.5 MW | Stan: CRITICAL"
-1780412459,residential chce 3.0 MW (priorytet 3)
-1780412459,Prognoza: zmiana mocy OZE o 1.5 MW
-12,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412459,industrial chce 30.0 MW (priorytet 2)
-1780412459,Prognoza: zmiana mocy OZE o -3.4 MW
-13,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412459,critical chce 8.0 MW (priorytet 1)
-13,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-13,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-13,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-13,"[Pogoda] Wiatr: 1.0 km/h | Słońce: 30%
-[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
-13,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412459,residential chce 3.0 MW (priorytet 3)
-13,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412459,industrial chce 30.0 MW (priorytet 2)
-14,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-1780412459,Prognoza: zmiana mocy OZE o -5.0 MW
-14,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-14,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-14,residential: dostał 0.00 / 3.00 (LoadShed)
-14,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 22%
+1781010521,Predictor: zmiana mocy OZE o -0.8 MW w ciągu 5 kroków
+6,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+6,"[Pogoda] Wiatr: 4.0 km/h | Słońce: 54%
+[Produkcja] OZE: 1.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 2.7 MW | Stan: CRITICAL"
+5,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+1781010521,Predictor: zmiana mocy OZE o -2.0 MW w ciągu 5 kroków
+7,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+7,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+7,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+7,"[Pogoda] Wiatr: 0.5 km/h | Słońce: 66%
 [Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 41.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-1780412459,residential chce 3.0 MW (priorytet 3)
-14,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412459,critical chce 8.0 MW (priorytet 1)
-1780412459,industrial chce 30.0 MW (priorytet 2)
-14,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412459,industrial chce 40.0 MW (priorytet 2)
-1780412459,residential chce 3.0 MW (priorytet 3)
-1780412459,Prognoza: zmiana mocy OZE o -1.9 MW
-1780412459,critical chce 8.0 MW (priorytet 1)
-15,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-15,"Odłączono industrial (priorytet 2, pobór 40.0 MW)"
-15,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-15,"[Pogoda] Wiatr: 0.3 km/h | Słońce: 23%
-[Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 51.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-15,critical: dostał 0.00 / 8.00 (LoadShed)
-15,industrial: dostał 0.00 / 40.00 (LoadShed)
-16,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-16,"Odłączono industrial (priorytet 2, pobór 40.0 MW)"
-16,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-16,"[Pogoda] Wiatr: 1.7 km/h | Słońce: 23%
-[Produkcja] OZE: 0.3 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 51.0 MW | Bilans: 0.3 MW | Stan: CRITICAL"
-1780412459,industrial chce 30.0 MW (priorytet 2)
-1780412459,critical chce 8.0 MW (priorytet 1)
-1780412459,Prognoza: zmiana mocy OZE o 0.8 MW
-16,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412459,residential chce 3.0 MW (priorytet 3)
-17,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-17,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-17,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-17,"[Pogoda] Wiatr: 1.5 km/h | Słońce: 29%
-[Produkcja] OZE: 0.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.2 MW | Stan: CRITICAL"
-17,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412459,industrial chce 30.0 MW (priorytet 2)
-17,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412459,residential chce 3.0 MW (priorytet 3)
-1780412459,Prognoza: zmiana mocy OZE o 1.9 MW
-17,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412459,critical chce 8.0 MW (priorytet 1)
-1780412459,industrial chce 30.0 MW (priorytet 2)
-18,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-18,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-18,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-18,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 20%
-[Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-18,industrial: dostał 0.00 / 30.00 (LoadShed)
-18,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412459,Prognoza: zmiana mocy OZE o -3.4 MW
-18,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412459,residential chce 10.0 MW (priorytet 3)
-1780412459,critical chce 8.0 MW (priorytet 1)
-19,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-19,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-19,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-1780412459,Prognoza: zmiana mocy OZE o 5.9 MW
-19,"[Pogoda] Wiatr: 4.0 km/h | Słońce: 22%
-[Produkcja] OZE: 1.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 48.0 MW | Bilans: 1.4 MW | Stan: CRITICAL"
-19,critical: dostał 0.00 / 8.00 (LoadShed)
-19,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412459,industrial chce 5.0 MW (priorytet 2)
-1780412459,critical chce 8.0 MW (priorytet 1)
-1780412459,residential chce 10.0 MW (priorytet 3)
-1780412459,residential chce 10.0 MW (priorytet 3)
-1780412459,Prognoza: zmiana mocy OZE o 1.4 MW
-1780412459,critical chce 8.0 MW (priorytet 1)
-20,industrial: dostał 0.00 / 5.00 (LoadShed)
-20,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-20,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-20,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-20,"[Pogoda] Wiatr: 5.1 km/h | Słońce: 21%
-[Produkcja] OZE: 2.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 2.4 MW | Stan: CRITICAL"
-1780412459,industrial chce 5.0 MW (priorytet 2)
-20,critical: dostał 0.00 / 8.00 (LoadShed)
-20,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412460,residential chce 10.0 MW (priorytet 3)
-1780412460,Prognoza: zmiana mocy OZE o -2.5 MW
-1780412460,critical chce 8.0 MW (priorytet 1)
-21,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-21,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-21,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-21,"[Pogoda] Wiatr: 4.8 km/h | Słońce: 24%
-[Produkcja] OZE: 2.3 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 2.3 MW | Stan: CRITICAL"
-1780412460,industrial chce 5.0 MW (priorytet 2)
-21,industrial: dostał 0.00 / 5.00 (LoadShed)
-22,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,Prognoza: zmiana mocy OZE o -2.7 MW
-1780412460,critical chce 8.0 MW (priorytet 1)
-22,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-22,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-22,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-22,"[Pogoda] Wiatr: 4.4 km/h | Słońce: 24%
-[Produkcja] OZE: 1.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 1.4 MW | Stan: CRITICAL"
-22,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412460,residential chce 10.0 MW (priorytet 3)
-22,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412460,industrial chce 5.0 MW (priorytet 2)
-23,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-23,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-23,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-23,"[Pogoda] Wiatr: 2.6 km/h | Słońce: 26%
-[Produkcja] OZE: 0.6 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 0.6 MW | Stan: CRITICAL"
-1780412460,industrial chce 5.0 MW (priorytet 2)
-1780412460,Prognoza: zmiana mocy OZE o 0.2 MW
-23,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,critical chce 8.0 MW (priorytet 1)
-23,industrial: dostał 0.00 / 5.00 (LoadShed)
-23,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412460,residential chce 3.0 MW (priorytet 3)
-24,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-24,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-24,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-24,"[Pogoda] Wiatr: 4.7 km/h | Słońce: 23%
-[Produkcja] OZE: 2.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 2.2 MW | Stan: CRITICAL"
-1780412460,industrial chce 5.0 MW (priorytet 2)
-1780412460,Prognoza: zmiana mocy OZE o -2.3 MW
-24,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,critical chce 8.0 MW (priorytet 1)
-24,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412460,residential chce 3.0 MW (priorytet 3)
-25,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-25,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-25,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-25,"[Pogoda] Wiatr: 5.5 km/h | Słońce: 31%
-[Produkcja] OZE: 3.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 3.0 MW | Stan: CRITICAL"
-25,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412460,industrial chce 5.0 MW (priorytet 2)
-25,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,critical chce 8.0 MW (priorytet 1)
-1780412460,Prognoza: zmiana mocy OZE o -0.0 MW
-25,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412460,residential chce 3.0 MW (priorytet 3)
-26,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-26,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-26,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-26,"[Pogoda] Wiatr: 5.9 km/h | Słońce: 32%
-[Produkcja] OZE: 3.5 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 3.5 MW | Stan: CRITICAL"
-26,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412460,residential chce 3.0 MW (priorytet 3)
-1780412460,Prognoza: zmiana mocy OZE o 0.2 MW
-26,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412460,industrial chce 5.0 MW (priorytet 2)
-26,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,critical chce 8.0 MW (priorytet 1)
-1780412460,Prognoza: zmiana mocy OZE o 1.5 MW
-27,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-27,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-27,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-27,"[Pogoda] Wiatr: 7.5 km/h | Słońce: 36%
-[Produkcja] OZE: 6.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 6.4 MW | Stan: CRITICAL"
-1780412460,residential chce 3.0 MW (priorytet 3)
-27,residential: dostał 0.00 / 3.00 (LoadShed)
-27,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,critical chce 8.0 MW (priorytet 1)
-27,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412460,industrial chce 5.0 MW (priorytet 2)
-28,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-28,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-28,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-28,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412460,Prognoza: zmiana mocy OZE o -1.6 MW
-28,critical: dostał 0.00 / 8.00 (LoadShed)
-28,"[Pogoda] Wiatr: 8.9 km/h | Słońce: 36%
-[Produkcja] OZE: 8.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 8.0 MW | Stan: CRITICAL"
-1780412460,industrial chce 5.0 MW (priorytet 2)
-1780412460,critical chce 8.0 MW (priorytet 1)
-1780412460,residential chce 3.0 MW (priorytet 3)
-1780412460,residential chce 3.0 MW (priorytet 3)
-29,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-29,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-29,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-29,"[Pogoda] Wiatr: 4.1 km/h | Słońce: 46%
-[Produkcja] OZE: 1.7 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 16.0 MW | Bilans: 1.7 MW | Stan: CRITICAL"
-29,residential: dostał 0.00 / 3.00 (LoadShed)
-29,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412460,industrial chce 5.0 MW (priorytet 2)
-1780412460,Prognoza: zmiana mocy OZE o -2.2 MW
-1780412460,critical chce 8.0 MW (priorytet 1)
-29,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,industrial chce 30.0 MW (priorytet 2)
-30,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-30,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-30,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-30,"[Pogoda] Wiatr: 3.4 km/h | Słońce: 46%
-[Produkcja] OZE: 1.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 1.1 MW | Stan: CRITICAL"
-1780412460,residential chce 3.0 MW (priorytet 3)
-30,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412460,Prognoza: zmiana mocy OZE o -2.2 MW
-30,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412460,critical chce 8.0 MW (priorytet 1)
-1780412461,Prognoza: zmiana mocy OZE o -3.3 MW
-31,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-31,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-31,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-31,"[Pogoda] Wiatr: 2.0 km/h | Słońce: 46%
-[Produkcja] OZE: 0.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.4 MW | Stan: CRITICAL"
-1780412461,critical chce 8.0 MW (priorytet 1)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,residential chce 10.0 MW (priorytet 3)
-31,residential: dostał 0.00 / 10.00 (LoadShed)
-31,critical: dostał 0.00 / 8.00 (LoadShed)
-32,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-32,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-32,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-32,"[Pogoda] Wiatr: 1.8 km/h | Słońce: 51%
-[Produkcja] OZE: 0.3 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 48.0 MW | Bilans: 0.3 MW | Stan: CRITICAL"
-1780412461,residential chce 10.0 MW (priorytet 3)
-32,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412461,Prognoza: zmiana mocy OZE o 3.3 MW
-1780412461,critical chce 8.0 MW (priorytet 1)
-32,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,critical chce 8.0 MW (priorytet 1)
-33,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-33,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-33,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-33,"[Pogoda] Wiatr: 0.2 km/h | Słońce: 55%
+6,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+6,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+6,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+8,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+8,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+8,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+8,"[Pogoda] Wiatr: 2.6 km/h | Słońce: 62%
+[Produkcja] OZE: 0.7 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 48.0 MW | Bilans: 0.7 MW | Stan: CRITICAL"
+7,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+1781010521,Predictor: zmiana mocy OZE o 5.1 MW w ciągu 5 kroków
+7,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+7,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+9,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+9,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+9,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+9,"[Pogoda] Wiatr: 0.5 km/h | Słońce: 63%
 [Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 48.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-1780412461,residential chce 10.0 MW (priorytet 3)
-33,critical: dostał 0.00 / 8.00 (LoadShed)
-33,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,Prognoza: zmiana mocy OZE o -1.8 MW
-1780412461,industrial chce 40.0 MW (priorytet 2)
-1780412461,Prognoza: zmiana mocy OZE o 3.1 MW
-34,residential: dostał 0.00 / 3.00 (LoadShed)
-34,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-34,"Odłączono industrial (priorytet 2, pobór 40.0 MW)"
-34,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-34,"[Pogoda] Wiatr: 2.7 km/h | Słońce: 62%
+8,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+8,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+8,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010521,Predictor: zmiana mocy OZE o 0.2 MW w ciągu 5 kroków
+1781010521,Predictor: zmiana mocy OZE o -2.2 MW w ciągu 5 kroków
+10,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+10,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+10,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+10,"[Pogoda] Wiatr: 0.2 km/h | Słońce: 67%
+[Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 48.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
+9,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+9,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+9,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o 6.4 MW w ciągu 5 kroków
+11,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+11,"LoadShed: odłączono industrial (priorytet 2, 40.0 MW)"
+11,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+10,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+11,"[Pogoda] Wiatr: 3.9 km/h | Słońce: 68%
+[Produkcja] OZE: 1.6 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 51.0 MW | Bilans: 1.6 MW | Stan: CRITICAL"
+10,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+10,industrial: przydzielono 0.00 / 40.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o -4.1 MW w ciągu 5 kroków
+12,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+12,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+12,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+12,"[Pogoda] Wiatr: 2.7 km/h | Słońce: 77%
 [Produkcja] OZE: 0.7 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 58.0 MW | Bilans: 0.7 MW | Stan: CRITICAL"
-1780412461,critical chce 8.0 MW (priorytet 1)
-1780412461,residential chce 3.0 MW (priorytet 3)
-34,industrial: dostał 0.00 / 40.00 (LoadShed)
-1780412461,Prognoza: zmiana mocy OZE o -2.2 MW
-35,critical: dostał 0.00 / 8.00 (LoadShed)
-35,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,critical chce 8.0 MW (priorytet 1)
-1780412461,residential chce 3.0 MW (priorytet 3)
-35,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-35,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-35,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-35,"[Pogoda] Wiatr: 1.3 km/h | Słońce: 54%
-[Produkcja] OZE: 0.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.2 MW | Stan: CRITICAL"
-36,residential: dostał 0.00 / 3.00 (LoadShed)
-36,critical: dostał 0.00 / 8.00 (LoadShed)
-36,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412461,residential chce 3.0 MW (priorytet 3)
-1780412461,critical chce 8.0 MW (priorytet 1)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,Prognoza: zmiana mocy OZE o -2.3 MW
-36,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-36,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-36,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-36,"[Pogoda] Wiatr: 0.8 km/h | Słońce: 60%
+[Sieć] Popyt: 41.0 MW | Bilans: 0.7 MW | Stan: CRITICAL"
+11,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+11,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+11,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+13,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+13,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+13,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+13,"[Pogoda] Wiatr: 2.7 km/h | Słońce: 75%
+[Produkcja] OZE: 0.7 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.7 MW | Stan: CRITICAL"
+12,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+12,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o 1.7 MW w ciągu 5 kroków
+12,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o -0.9 MW w ciągu 5 kroków
+14,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+14,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+14,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+14,"[Pogoda] Wiatr: 0.9 km/h | Słońce: 84%
 [Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 41.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
-37,critical: dostał 0.00 / 8.00 (LoadShed)
-37,industrial: dostał 0.00 / 30.00 (LoadShed)
-37,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412461,critical chce 8.0 MW (priorytet 1)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,residential chce 3.0 MW (priorytet 3)
-37,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-37,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-37,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-37,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 63%
+13,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+13,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+13,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+15,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+15,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+15,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+15,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 89%
 [Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 41.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-1780412461,Prognoza: zmiana mocy OZE o -2.1 MW
-38,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412461,Prognoza: zmiana mocy OZE o 3.7 MW
-38,residential: dostał 0.00 / 3.00 (LoadShed)
-38,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-1780412461,residential chce 3.0 MW (priorytet 3)
-1780412461,critical chce 8.0 MW (priorytet 1)
-38,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-38,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-38,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-38,"[Pogoda] Wiatr: 3.4 km/h | Słońce: 64%
+14,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+14,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+14,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o -5.8 MW w ciągu 5 kroków
+1781010522,Predictor: zmiana mocy OZE o 7.5 MW w ciągu 5 kroków
+16,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+16,"LoadShed: odłączono industrial (priorytet 2, 40.0 MW)"
+16,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+16,"[Pogoda] Wiatr: 3.8 km/h | Słońce: 86%
+[Produkcja] OZE: 1.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 51.0 MW | Bilans: 1.4 MW | Stan: CRITICAL"
+15,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+15,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+15,industrial: przydzielono 0.00 / 40.00 MW [LoadShed]
+17,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+17,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+17,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+17,"[Pogoda] Wiatr: 3.4 km/h | Słońce: 72%
 [Produkcja] OZE: 1.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 41.0 MW | Bilans: 1.2 MW | Stan: CRITICAL"
-1780412461,Prognoza: zmiana mocy OZE o -6.9 MW
-39,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-39,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-39,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-39,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 53%
+16,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o 3.4 MW w ciągu 5 kroków
+16,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+16,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+18,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+18,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+18,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+18,"[Pogoda] Wiatr: 1.1 km/h | Słońce: 80%
+[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
+17,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+17,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o -5.4 MW w ciągu 5 kroków
+17,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+19,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+19,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+1781010522,Predictor: zmiana mocy OZE o -1.8 MW w ciągu 5 kroków
+19,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+19,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 79%
 [Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-39,industrial: dostał 0.00 / 40.00 (LoadShed)
-1780412461,industrial chce 40.0 MW (priorytet 2)
-39,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412461,critical chce 8.0 MW (priorytet 1)
-39,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412461,residential chce 3.0 MW (priorytet 3)
-40,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-1780412461,Prognoza: zmiana mocy OZE o 0.1 MW
-40,"Odłączono industrial (priorytet 2, pobór 40.0 MW)"
-40,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-40,industrial: dostał 0.00 / 30.00 (LoadShed)
-40,"[Pogoda] Wiatr: 2.0 km/h | Słońce: 54%
-[Produkcja] OZE: 0.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 51.0 MW | Bilans: 0.4 MW | Stan: CRITICAL"
-40,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412461,industrial chce 30.0 MW (priorytet 2)
-40,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412461,residential chce 3.0 MW (priorytet 3)
-1780412461,critical chce 8.0 MW (priorytet 1)
-1780412462,Prognoza: zmiana mocy OZE o -0.9 MW
-41,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-41,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-41,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-41,"[Pogoda] Wiatr: 0.2 km/h | Słońce: 53%
-[Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-41,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412462,critical chce 8.0 MW (priorytet 1)
-41,residential: dostał 0.00 / 3.00 (LoadShed)
-1780412462,residential chce 3.0 MW (priorytet 3)
-41,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412462,industrial chce 30.0 MW (priorytet 2)
-42,"Odłączono residential (priorytet 3, pobór 3.0 MW)"
-42,"Odłączono industrial (priorytet 2, pobór 30.0 MW)"
-42,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-42,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 57%
-[Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 41.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-1780412462,industrial chce 30.0 MW (priorytet 2)
-42,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412462,critical chce 8.0 MW (priorytet 1)
-42,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412462,residential chce 10.0 MW (priorytet 3)
-1780412462,Prognoza: zmiana mocy OZE o 0.1 MW
-42,industrial: dostał 0.00 / 30.00 (LoadShed)
-1780412462,industrial chce 5.0 MW (priorytet 2)
-1780412462,Prognoza: zmiana mocy OZE o -4.1 MW
-43,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-43,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-43,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-43,"[Pogoda] Wiatr: 0.0 km/h | Słońce: 61%
+[Sieć] Popyt: 48.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
+18,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+18,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+18,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010522,Predictor: zmiana mocy OZE o 0.9 MW w ciągu 5 kroków
+20,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+20,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+20,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+20,"[Pogoda] Wiatr: 0.5 km/h | Słońce: 81%
 [Produkcja] OZE: 0.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 23.0 MW | Bilans: 0.0 MW | Stan: CRITICAL"
-43,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412462,residential chce 10.0 MW (priorytet 3)
-43,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412462,critical chce 8.0 MW (priorytet 1)
-44,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-44,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-44,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-44,"[Pogoda] Wiatr: 1.3 km/h | Słońce: 51%
-[Produkcja] OZE: 0.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 0.2 MW | Stan: CRITICAL"
-1780412462,critical chce 8.0 MW (priorytet 1)
-44,residential: dostał 0.00 / 10.00 (LoadShed)
-1780412462,residential chce 10.0 MW (priorytet 3)
-44,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412462,industrial chce 5.0 MW (priorytet 2)
-1780412462,Prognoza: zmiana mocy OZE o 1.7 MW
-44,critical: dostał 0.00 / 8.00 (LoadShed)
-45,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-45,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-45,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-45,residential: dostał 0.00 / 10.00 (LoadShed)
-45,"[Pogoda] Wiatr: 1.9 km/h | Słońce: 43%
-[Produkcja] OZE: 0.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 0.4 MW | Stan: CRITICAL"
-1780412462,residential chce 10.0 MW (priorytet 3)
-1780412462,critical chce 8.0 MW (priorytet 1)
-1780412462,Prognoza: zmiana mocy OZE o 0.9 MW
-45,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412462,industrial chce 5.0 MW (priorytet 2)
-46,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-46,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-46,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-46,"[Pogoda] Wiatr: 2.3 km/h | Słońce: 54%
-[Produkcja] OZE: 0.5 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
-[Sieć] Popyt: 23.0 MW | Bilans: 0.5 MW | Stan: CRITICAL"
-1780412462,residential chce 10.0 MW (priorytet 3)
-46,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412462,industrial chce 5.0 MW (priorytet 2)
-1780412462,Prognoza: zmiana mocy OZE o -1.2 MW
-46,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412462,critical chce 8.0 MW (priorytet 1)
-47,"Odłączono residential (priorytet 3, pobór 10.0 MW)"
-47,"Odłączono industrial (priorytet 2, pobór 5.0 MW)"
-47,"Odłączono critical (priorytet 1, pobór 8.0 MW)"
-47,"[Pogoda] Wiatr: 1.1 km/h | Słońce: 50%
+19,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+19,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+19,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+21,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+21,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+21,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+21,"[Pogoda] Wiatr: 3.1 km/h | Słońce: 84%
+[Produkcja] OZE: 0.9 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 23.0 MW | Bilans: 0.9 MW | Stan: CRITICAL"
+20,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 4.1 MW w ciągu 5 kroków
+20,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+20,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 1.7 MW w ciągu 5 kroków
+22,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+22,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+22,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+22,"[Pogoda] Wiatr: 3.8 km/h | Słońce: 73%
+[Produkcja] OZE: 1.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 23.0 MW | Bilans: 1.4 MW | Stan: CRITICAL"
+21,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+21,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+21,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o -0.7 MW w ciągu 5 kroków
+23,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+23,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+23,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+23,"[Pogoda] Wiatr: 2.1 km/h | Słońce: 77%
 [Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
 [Sieć] Popyt: 23.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
-1780412462,residential chce 3.0 MW (priorytet 3)
-47,critical: dostał 0.00 / 8.00 (LoadShed)
-1780412462,critical chce 8.0 MW (priorytet 1)
-47,industrial: dostał 0.00 / 5.00 (LoadShed)
-1780412462,industrial chce 5.0 MW (priorytet 2)
-1780412462,Prognoza: zmiana mocy OZE o -1.5 MW
+22,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+22,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+22,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o -1.0 MW w ciągu 5 kroków
+24,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+24,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+24,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+24,"[Pogoda] Wiatr: 0.9 km/h | Słońce: 81%
+[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
+23,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+23,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+23,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 3.5 MW w ciągu 5 kroków
+25,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+25,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+25,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+25,"[Pogoda] Wiatr: 4.2 km/h | Słońce: 70%
+[Produkcja] OZE: 1.8 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 1.8 MW | Stan: CRITICAL"
+24,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+24,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+24,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 5.9 MW w ciągu 5 kroków
+26,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+26,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+26,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+26,"[Pogoda] Wiatr: 5.3 km/h | Słońce: 79%
+[Produkcja] OZE: 2.9 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 2.9 MW | Stan: CRITICAL"
+25,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+25,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+25,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 2.2 MW w ciągu 5 kroków
+27,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+27,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+27,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+27,"[Pogoda] Wiatr: 6.5 km/h | Słońce: 82%
+[Produkcja] OZE: 4.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 4.2 MW | Stan: CRITICAL"
+26,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+26,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+26,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 0.6 MW w ciągu 5 kroków
+28,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+28,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+28,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+28,"[Pogoda] Wiatr: 6.5 km/h | Słońce: 81%
+[Produkcja] OZE: 4.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 4.2 MW | Stan: CRITICAL"
+27,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+27,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+27,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+29,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+29,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+29,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+29,"[Pogoda] Wiatr: 6.3 km/h | Słońce: 80%
+[Produkcja] OZE: 4.0 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 4.0 MW | Stan: CRITICAL"
+28,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+28,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+28,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o 3.9 MW w ciągu 5 kroków
+30,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+30,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+30,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+30,"[Pogoda] Wiatr: 3.7 km/h | Słońce: 84%
+[Produkcja] OZE: 1.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 16.0 MW | Bilans: 1.4 MW | Stan: CRITICAL"
+29,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+29,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+29,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+1781010523,Predictor: zmiana mocy OZE o -0.5 MW w ciągu 5 kroków
+1781010524,Predictor: zmiana mocy OZE o 6.8 MW w ciągu 5 kroków
+31,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+31,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+31,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+31,"[Pogoda] Wiatr: 4.8 km/h | Słońce: 88%
+[Produkcja] OZE: 1.8 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 1.8 MW | Stan: CRITICAL"
+30,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+30,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+30,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o 0.2 MW w ciągu 5 kroków
+32,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+32,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+32,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+32,"[Pogoda] Wiatr: 2.8 km/h | Słońce: 94%
+[Produkcja] OZE: 0.8 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 48.0 MW | Bilans: 0.8 MW | Stan: CRITICAL"
+31,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+31,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+31,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+33,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+33,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+33,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+33,"[Pogoda] Wiatr: 3.3 km/h | Słońce: 93%
+[Produkcja] OZE: 1.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 48.0 MW | Bilans: 1.1 MW | Stan: CRITICAL"
+32,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+32,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o 3.2 MW w ciągu 5 kroków
+32,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o -2.0 MW w ciągu 5 kroków
+34,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+34,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+34,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+34,"[Pogoda] Wiatr: 1.2 km/h | Słońce: 91%
+[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 48.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
+33,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+33,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+33,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o 2.9 MW w ciągu 5 kroków
+35,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+35,"LoadShed: odłączono industrial (priorytet 2, 40.0 MW)"
+35,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+35,"[Pogoda] Wiatr: 3.3 km/h | Słońce: 89%
+[Produkcja] OZE: 1.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 51.0 MW | Bilans: 1.1 MW | Stan: CRITICAL"
+34,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+34,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+34,industrial: przydzielono 0.00 / 40.00 MW [LoadShed]
+36,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+36,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+36,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+36,"[Pogoda] Wiatr: 1.7 km/h | Słońce: 92%
+[Produkcja] OZE: 0.3 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.3 MW | Stan: CRITICAL"
+35,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o -3.2 MW w ciągu 5 kroków
+35,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+35,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+37,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+37,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+37,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+37,"[Pogoda] Wiatr: 1.2 km/h | Słońce: 95%
+[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
+36,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o 1.0 MW w ciągu 5 kroków
+36,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+36,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o 0.4 MW w ciągu 5 kroków
+38,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+38,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+38,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+38,"[Pogoda] Wiatr: 0.9 km/h | Słońce: 90%
+[Produkcja] OZE: 0.1 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.1 MW | Stan: CRITICAL"
+37,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+37,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+37,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+39,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+39,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+39,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+39,"[Pogoda] Wiatr: 1.5 km/h | Słońce: 86%
+[Produkcja] OZE: 0.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.2 MW | Stan: CRITICAL"
+38,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o 0.1 MW w ciągu 5 kroków
+38,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+38,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+40,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+40,"LoadShed: odłączono industrial (priorytet 2, 40.0 MW)"
+40,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+40,"[Pogoda] Wiatr: 1.4 km/h | Słońce: 76%
+[Produkcja] OZE: 0.2 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 51.0 MW | Bilans: 0.2 MW | Stan: CRITICAL"
+39,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+39,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+39,industrial: przydzielono 0.00 / 40.00 MW [LoadShed]
+1781010524,Predictor: zmiana mocy OZE o -4.4 MW w ciągu 5 kroków
+1781010525,Predictor: zmiana mocy OZE o 4.1 MW w ciągu 5 kroków
+41,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+41,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+41,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+41,"[Pogoda] Wiatr: 2.1 km/h | Słońce: 82%
+[Produkcja] OZE: 0.4 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.4 MW | Stan: CRITICAL"
+40,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+40,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+40,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+1781010525,Predictor: zmiana mocy OZE o -3.7 MW w ciągu 5 kroków
+42,"LoadShed: odłączono residential (priorytet 3, 3.0 MW)"
+42,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+42,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+42,"[Pogoda] Wiatr: 2.9 km/h | Słońce: 91%
+[Produkcja] OZE: 0.8 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 41.0 MW | Bilans: 0.8 MW | Stan: CRITICAL"
+41,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+41,residential: przydzielono 0.00 / 3.00 MW [LoadShed]
+41,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+1781010525,Predictor: zmiana mocy OZE o -0.1 MW w ciągu 5 kroków
+43,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+43,"LoadShed: odłączono industrial (priorytet 2, 30.0 MW)"
+43,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+43,"[Pogoda] Wiatr: 2.7 km/h | Słońce: 96%
+[Produkcja] OZE: 0.8 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 48.0 MW | Bilans: 0.8 MW | Stan: CRITICAL"
+42,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+42,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+42,industrial: przydzielono 0.00 / 30.00 MW [LoadShed]
+44,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+44,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+44,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+1781010525,Predictor: zmiana mocy OZE o -0.1 MW w ciągu 5 kroków
+44,"[Pogoda] Wiatr: 2.3 km/h | Słońce: 100%
+[Produkcja] OZE: 0.5 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 23.0 MW | Bilans: 0.5 MW | Stan: CRITICAL"
+43,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
+43,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+43,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+1781010525,Predictor: zmiana mocy OZE o -1.5 MW w ciągu 5 kroków
+45,"LoadShed: odłączono residential (priorytet 3, 10.0 MW)"
+45,"LoadShed: odłączono industrial (priorytet 2, 5.0 MW)"
+45,"LoadShed: odłączono critical (priorytet 1, 8.0 MW)"
+44,residential: przydzielono 0.00 / 10.00 MW [LoadShed]
+45,"[Pogoda] Wiatr: 2.2 km/h | Słońce: 92%
+[Produkcja] OZE: 0.5 MW | Konwencjonalna: 0.0 MW | Baterie: 0% (SoC)
+[Sieć] Popyt: 23.0 MW | Bilans: 0.5 MW | Stan: CRITICAL"
+44,industrial: przydzielono 0.00 / 5.00 MW [LoadShed]
+44,critical: przydzielono 0.00 / 8.00 MW [LoadShed]
